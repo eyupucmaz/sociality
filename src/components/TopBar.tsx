@@ -5,6 +5,10 @@ const postStates = [
     color: '#ACACAC',
   },
   {
+    name: 'Publishing',
+    color: '#C94225',
+  },
+  {
     name: 'Scheduled',
     color: '#3AC183',
   },
