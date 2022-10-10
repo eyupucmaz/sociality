@@ -4,12 +4,6 @@ import Sidebar from './components/Sidebar';
 import TopBar from './components/TopBar';
 import data from './Mock/data.json';
 
-// TODO: While rendering the posts, replace broken images in the data.json dynamically with the no-post-image.png file that is provided in the assets.
-
-// TODO: The post structure in the data.json file includes a ‘status’ field. As a helper, status types by code: 0 for Need Approval, 1 for Scheduled, 2 for Publishing, 3 for Published, 4 for Error
-
-// TODO: CONNECT TO MOCK API
-
 function App() {
   const [posts, setPosts] = useState(data.posts_by_date);
 

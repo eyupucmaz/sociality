@@ -70,8 +70,6 @@ export default function Post(post: any) {
         {/* image */}
         <div className="w-[284px] h-[239px] mt-3 bg-slate-400">
           {
-            // TODO: add the condition to check if the post has an image or not
-            // eslint-disable-next-line no-constant-condition
             post.post.entry.image[0] ? (
               <img
                 src={post.post.entry.image[0]}
