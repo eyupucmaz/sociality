@@ -43,7 +43,7 @@ export default function Post(post: any) {
         {/* action & details */}
         <div className="flex justify-between">
           <div className="text-sm text-f-secondary">
-            {dateWithHours(post.post.published_at) as React.ReactNode}
+            {dateWithHours(post.post.created_at)}
           </div>
           <div className="flex justify-between basis-20">
             <img

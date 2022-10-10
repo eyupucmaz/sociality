@@ -25,7 +25,7 @@ export function date2String(date: string) {
     return `${day} ${months[month - 1]} ${year}`
 
   } catch (error) {
-    return new Error('Date format is not correct!');
+    return "00 Jan 1999"
   }
 }
 
@@ -39,7 +39,7 @@ export function dateWithHours(dateInput: string) {
     return `${date2String(date)} - ${hours.slice(0, -3)}`
 
   } catch (error) {
-    return new Error('Something went wrong, please check the date format!')
+    return "00 Jan 1999 - 00:00"
   }
 
 }
