@@ -32,7 +32,6 @@ const postStates = [
 
 // TODO: CONNECT TO MOCK API
 
-console.log(JSON.parse(JSON.stringify(data.posts_by_date)));
 
 function App() {
   const [posts, setPosts] = useState(data.posts_by_date);

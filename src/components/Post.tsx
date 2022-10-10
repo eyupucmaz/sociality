@@ -5,7 +5,6 @@ import iconLikes from '../assets/icon-likes.svg';
 import iconComments from '../assets/icon-comments.svg';
 import iconShare from '../assets/icon-shares.svg';
 import iconViews from '../assets/icon-views.svg';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import noPostImage from '../assets/no-post-image.png';
 
 export default function Post(post: any) {
@@ -16,7 +15,7 @@ export default function Post(post: any) {
       : postState === 1
       ? '#3AC183'
       : postState === 2
-      ? '#ACACAC'
+      ? '#C94225'
       : postState === 3
       ? '#ACACAC'
       : postState === 4
@@ -59,20 +58,23 @@ export default function Post(post: any) {
         </div>
         {/* post content */}
         <div className="pt-4 text-f-primary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-          iste harum! Harum.
+          {<p className="text-sm">{post.post.entry.message}</p>}
         </div>
         {/* image */}
         <div className="w-[284px] h-[239px] mt-3 bg-slate-400">
           {
             // TODO: add the condition to check if the post has an image or not
             // eslint-disable-next-line no-constant-condition
-            true ? (
+            post.post.entry.image[0] ? (
               <img
-                src="https://loremflickr.com/284/239"
+                src={post.post.entry.image[0]}
                 alt="post image"
                 className="w-full h-full object-cover"
                 loading="lazy"
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = noPostImage;
+                }}
               />
             ) : (
               <img
