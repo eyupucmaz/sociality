@@ -1,5 +1,5 @@
 import Post from './Post';
-import date2String from '../utils/dateFormatter';
+import {date2String} from '../utils/dateFormatter';
 import React from 'react';
 
 const PostList = (posts: any, key: string) => {

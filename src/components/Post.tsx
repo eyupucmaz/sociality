@@ -6,6 +6,7 @@ import iconComments from '../assets/icon-comments.svg';
 import iconShare from '../assets/icon-shares.svg';
 import iconViews from '../assets/icon-views.svg';
 import noPostImage from '../assets/no-post-image.png';
+import { dateWithHours } from '../utils/dateFormatter';
 
 export default function Post(post: any) {
   const postState = post.post.status;
@@ -29,14 +30,20 @@ export default function Post(post: any) {
         className={`w-10 h-full basis-10 grid place-items-center`}
         style={{ backgroundColor: postStateColor }}
       >
-        <i className="fa-brands fa-facebook-f text-white text-[35px]"></i>
+        <i
+          className={`fa-brands text-white text-[35px] fa-${
+            post.post.account.channel === 'instagrambusiness'
+              ? 'instagram'
+              : post.post.account.channel
+          } `}
+        ></i>
       </div>
       {/* POST CONTENT */}
       <div className="h-full w-full bg-white p-5">
         {/* action & details */}
         <div className="flex justify-between">
           <div className="text-sm text-f-secondary">
-            14 January 2016 - 14:30
+            {dateWithHours(post.post.created_at) as React.ReactNode}
           </div>
           <div className="flex justify-between basis-20">
             <img

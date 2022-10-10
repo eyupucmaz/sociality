@@ -14,7 +14,7 @@ const months = [
   'December'
 ]
 
-export default function date2String(date: string) {
+export function date2String(date: string) {
 
   try {
     const dateArray = date.split('-');
@@ -27,4 +27,19 @@ export default function date2String(date: string) {
   } catch (error) {
     return new Error('Date format is not correct!');
   }
+}
+
+
+export function dateWithHours(dateInput: string) {
+
+  try {
+    const date = dateInput.split(' ')[0];
+    const hours = dateInput.split(' ')[1];
+
+    return `${date2String(date)} - ${hours.slice(0, -3)}`
+
+  } catch (error) {
+    return new Error('Something went wrong, please check the date format!')
+  }
+
 }
