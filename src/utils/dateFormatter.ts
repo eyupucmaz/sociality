@@ -32,7 +32,7 @@ export function dateWithHours(dateInput: string) {
   try {
     const date = dateInput.split(' ')[0];
     const hours = dateInput.split(' ')[1];
-    console.log(date)
+
     return `${date2String(date)} - ${hours.slice(0, -3)}`
 
   } catch (error) {
