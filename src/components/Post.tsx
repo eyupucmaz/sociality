@@ -23,6 +23,8 @@ export default function Post(post: any) {
       ? '#FB6450'
       : '#67B1F2';
 
+  const postDate = dateWithHours(post.post.published_at);
+
   return (
     <div className="w-[369px] h-[446px] flex">
       {/* POST STATUS */}
@@ -42,9 +44,7 @@ export default function Post(post: any) {
       <div className="h-full w-full bg-white p-5">
         {/* action & details */}
         <div className="flex justify-between">
-          <div className="text-sm text-f-secondary">
-            {dateWithHours(post.post.created_at)}
-          </div>
+          <div className="text-sm text-f-secondary">{postDate}</div>
           <div className="flex justify-between basis-20">
             <img
               src={iconCancel}
@@ -69,27 +69,25 @@ export default function Post(post: any) {
         </div>
         {/* image */}
         <div className="w-[284px] h-[239px] mt-3 bg-slate-400">
-          {
-            post.post.entry.image[0] ? (
-              <img
-                src={post.post.entry.image[0]}
-                alt="post image"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = noPostImage;
-                }}
-              />
-            ) : (
-              <img
-                src={noPostImage}
-                alt="no post image"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            )
-          }
+          {post.post.entry.image[0] ? (
+            <img
+              src={post.post.entry.image[0]}
+              alt="post image"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null; // prevents looping
+                currentTarget.src = noPostImage;
+              }}
+            />
+          ) : (
+            <img
+              src={noPostImage}
+              alt="no post image"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
         </div>
         {/* statistics */}
         <div className="flex justify-start items-center mt-4">

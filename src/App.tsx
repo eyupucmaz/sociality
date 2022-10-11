@@ -13,7 +13,7 @@ function App() {
       <div className="mt-9 ml-80">
         <TopBar />
         {Object.entries(posts).map(([key, value]) => (
-          <PostList key={key} posts={value} />
+          <PostList key={key} posts={value} date={key} />
         ))}
       </div>
     </div>

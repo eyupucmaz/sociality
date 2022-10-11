@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Post from './Post';
 import { date2String } from '../utils/dateFormatter';
 
-const PostList = (posts: any) => {
-  const [date, setDate] = useState(date2String(posts.date));
+const PostList = (posts: any, date: string) => {
+  date = date2String(posts.date);
+
   return (
     <>
       <h1 className="mb-5 text-f-secondary">{date}</h1>
